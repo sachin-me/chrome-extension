@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Chrome Extension</title>
+  <link rel="stylesheet" href="/main.c52e0fe2.css">
+  <link href="https://fonts.googleapis.com/css?family=Signika" rel="stylesheet">
+<script src="/main.c52e0fe2.js"></script></head>
+<body>
+<script>var bg;
+
+function randomBg() {
+  var dataImg = fetch('https://api.unsplash.com/photos/random/?client_id=7b68b13bf3f89555652ebdcff58ed3b4622ade9f419c5f3ad2b1d163fc59b1cc').then(function (d) {
+    return d.json();
+  }).then(function (data) {
+    return bg = data;
+  }).then(displaBg);
+  console.log(dataImg);
+}
+
+function displaBg() {
+  document.body.style.background = "url(".concat(bg.urls.raw, ")");
+}
+
+document.body.onload = function () {
+  setInterval(randomBg, 60000);
+};</script>
+  <section class="container">
+    <div class="prompt-name">
+        <div>Hello, What's your name</div>
+        <input type="text" class="prompt-input" required="">
+    </div>
+    <div class="time">
+      <div class="clock"></div>
+    </div>
+    <div class="user-greet"></div>
+    <div class="quote-section">
+      <div class="quotes"></div>
+      <div class="author"></div>
+    </div>
+    <div class="todo">
+      <h1>Todo List</h1>
+      <div class="todo-wrapper">
+        <form action="" class="form-element">
+          <input type="text" class="form-input" placeholder="What needs to be done?">
+        </form>
+        <ul></ul>
+        <div class="todo-feature">
+          <div class="item-left"></div>
+          <span class="all-list list-btn list-all">All</span>
+          <span class="completed list-btn">Completed</span>
+          <span class="active list-btn">Active</span>
+          <span class="clear-complete">Clear Completed</span>
+        </div>
+      </div>
+    </div>
+  </section>
+  <script src="/main.fb6bbcaf.js"></script>
+  <script src="/quotes.acd9b62c.js"></script>
+</body>
+</html>
