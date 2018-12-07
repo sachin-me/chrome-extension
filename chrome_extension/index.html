@@ -12,11 +12,13 @@
 <script>
   var bg;
   function randomBg() {
-    let dataImg = fetch('https://api.unsplash.com/photos/random/?client_id=7b68b13bf3f89555652ebdcff58ed3b4622ade9f419c5f3ad2b1d163fc59b1cc').then(d => d.json()).then(data => bg = data).then(displaBg);
+    let dataImg = fetch('https://api.unsplash.com/photos/random/?client_id=7b68b13bf3f89555652ebdcff58ed3b4622ade9f419c5f3ad2b1d163fc59b1cc').then(d => d.json()).then(data => bg = data).then((resolve, reject) => {
+      resolve(displaBg);
+    })
     console.log(dataImg);
   }
   function displaBg() {
-    document.body.style.background = `url(${bg.urls.raw})`;
+    document.body.style.background = `url(${bg.urls.regular})`;
   }
   document.body.onload = function() {
     setInterval(randomBg, 60000);

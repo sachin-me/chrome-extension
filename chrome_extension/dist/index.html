@@ -16,12 +16,14 @@ function randomBg() {
     return d.json();
   }).then(function (data) {
     return bg = data;
-  }).then(displaBg);
+  }).then(function (resolve, reject) {
+    resolve(displaBg);
+  });
   console.log(dataImg);
 }
 
 function displaBg() {
-  document.body.style.background = "url(".concat(bg.urls.raw, ")");
+  document.body.style.background = "url(".concat(bg.urls.regular, ")");
 }
 
 document.body.onload = function () {
